@@ -14,8 +14,10 @@ const Navbar = () => {
               {/* Logo icon */}
               <b>
                 <img
-                  src="../assets/images/logo-light-icon.png"
+                  src="../assets/images/logo-light-icon1.png"
                   alt="homepage"
+                  width="50"
+                  height="30"
                   className="light-logo"
                 />
               </b>
@@ -26,7 +28,7 @@ const Navbar = () => {
 
                 {/* Light Logo text */}
                 <img
-                  src="../assets/images/logo-light-text.png"
+                  src="../assets/images/logo-light-text1.png"
                   className="light-logo"
                   alt="homepage"
                 />
@@ -138,20 +140,10 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="true"
               >
-                Markarn Doe
+                username{" "}
               </a>
               <div className="dropdown-menu animated flipInY">
                 {" "}
-                <a href="#" className="dropdown-item">
-                  <i className="ti-user" /> My Profile
-                </a>{" "}
-                <a href="#" className="dropdown-item">
-                  <i className="ti-wallet" /> My Balance
-                </a>{" "}
-                <a href="#" className="dropdown-item">
-                  <i className="ti-email" /> Inbox
-                </a>
-                <div className="dropdown-divider" />{" "}
                 <a href="#" className="dropdown-item">
                   <i className="ti-settings" /> Account Setting
                 </a>
