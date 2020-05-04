@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 const Navbar = () => {
   const firstConnect = false;
@@ -66,18 +66,22 @@ const Navbar = () => {
               {/* ============================================================== */}
               {/* Messages */}
               {/* ============================================================== */}
-              <li className="nav-item dropdown mega-dropdown">
-                {" "}
-                <a
-                  className="nav-link dropdown-toggle text-muted waves-effect waves-dark"
-                  href="#"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i className="mdi mdi-view-grid" />
-                </a>
-              </li>
+              {firstConnect ? (
+                <Fragment></Fragment>
+              ) : (
+                <li className="nav-item dropdown mega-dropdown">
+                  {" "}
+                  <a
+                    className="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+                    href="#"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i className="mdi mdi-view-grid" />
+                  </a>
+                </li>
+              )}
               {/* ============================================================== */}
               {/* End Messages */}
               {/* ============================================================== */}
@@ -145,10 +149,16 @@ const Navbar = () => {
               </a>
               <div className="dropdown-menu animated flipInY">
                 {" "}
-                <a href="#" className="dropdown-item">
-                  <i className="ti-settings" /> Account Settings
-                </a>
-                <div className="dropdown-divider" />{" "}
+                {firstConnect ? (
+                  <Fragment></Fragment>
+                ) : (
+                  <Fragment>
+                    <a href="#" className="dropdown-item">
+                      <i className="ti-settings" /> Account Settings
+                    </a>{" "}
+                    <div className="dropdown-divider" />
+                  </Fragment>
+                )}
                 <a href="login.html" className="dropdown-item">
                   <i className="fa fa-power-off" /> Logout
                 </a>{" "}
@@ -158,66 +168,81 @@ const Navbar = () => {
           {/* End User profile text*/}
           {/* Sidebar navigation*/}
           <nav className="sidebar-nav">
-            <ul id="sidebarnav">
-              <li className="nav-small-cap">MISSIONS</li>
-              <li>
-                {" "}
-                <a
-                  className=" waves-effect waves-dark"
-                  href="#"
-                  aria-expanded="false"
-                >
-                  <i className="mdi mdi-skip-next" />
-                  <span className="hide-menu">next missions</span>
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a
-                  className=" waves-effect waves-dark"
-                  href="#"
-                  aria-expanded="false"
-                >
-                  <i className="mdi mdi-skip-previous" />
-                  <span className="hide-menu">previous missions</span>
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a
-                  className=" waves-effect waves-dark"
-                  href="#"
-                  aria-expanded="false"
-                >
-                  <i className="mdi mdi-video" />
-                  <span className="hide-menu">live missions</span>
-                </a>
-              </li>
-              <li className="nav-devider" />
-              <li className="nav-small-cap">PERSONAL</li>
-              <li>
-                {" "}
-                <a
-                  className=" waves-effect waves-dark"
-                  href="#"
-                  aria-expanded="false"
-                >
-                  <i className="mdi mdi-account" />
-                  <span className="hide-menu">My account settings</span>
-                </a>
-              </li>
-              <li className="nav-devider" />
-            </ul>
+            {firstConnect ? (
+              <Fragment></Fragment>
+            ) : (
+              <ul id="sidebarnav">
+                <li className="nav-small-cap">MISSIONS</li>
+                <li>
+                  {" "}
+                  <a
+                    className=" waves-effect waves-dark"
+                    href="#"
+                    aria-expanded="false"
+                  >
+                    <i className="mdi mdi-skip-next" />
+                    <span className="hide-menu">next missions</span>
+                  </a>
+                </li>
+                <li>
+                  {" "}
+                  <a
+                    className=" waves-effect waves-dark"
+                    href="#"
+                    aria-expanded="false"
+                  >
+                    <i className="mdi mdi-skip-previous" />
+                    <span className="hide-menu">previous missions</span>
+                  </a>
+                </li>
+                <li>
+                  {" "}
+                  <a
+                    className=" waves-effect waves-dark"
+                    href="#"
+                    aria-expanded="false"
+                  >
+                    <i className="mdi mdi-video" />
+                    <span className="hide-menu">live missions</span>
+                  </a>
+                </li>
+                <li className="nav-devider" />
+                <li className="nav-small-cap">PERSONAL</li>
+                <li>
+                  {" "}
+                  <a
+                    className=" waves-effect waves-dark"
+                    href="#"
+                    aria-expanded="false"
+                  >
+                    <i className="mdi mdi-account" />
+                    <span className="hide-menu">My account settings</span>
+                  </a>
+                </li>
+                <li className="nav-devider" />
+              </ul>
+            )}{" "}
           </nav>
           {/* End Sidebar navigation */}
         </div>
         {/* End Sidebar scroll*/}
         {/* Bottom points*/}
         <div className="sidebar-footer">
-          {/* item*/}
-          <a href="#" className="link" data-toggle="tooltip" title="Settings">
-            <i className="ti-settings" />
-          </a>
+          {
+            /* item*/
+            firstConnect ? (
+              <Fragment></Fragment>
+            ) : (
+              <a
+                href="#"
+                className="link"
+                data-toggle="tooltip"
+                title="Settings"
+              >
+                <i className="ti-settings" />
+              </a>
+            )
+          }
           {/* item*/}
           <a href="#" className="link" data-toggle="tooltip" title="Logout">
             <i className="mdi mdi-power" />
