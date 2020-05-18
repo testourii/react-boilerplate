@@ -1,77 +1,75 @@
-import React from "react";
-
-const LoginPage = () => {
+import React, { useState, Fragment } from "react";
+import animate__fadeInBottomLeft from "animate.css";
+import video from "./video.mp4";
+const Login = () => {
+  const [USBauth, setUSBauth] = useState(false);
   return (
-    <section
-      id="wrapper"
-      className="login-register login-sidebar"
-      style={{
-        backgroundImage: "url(../assets/images/background/register1.jpg)",
-        width: "100%",
-        height: "100%",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {" "}
-      <div className="login-box card">
-        <div className="card-body">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <form className="form-horizontal form-material" id="loginform">
-            <a href="javascript:void(0)" className="text-center db">
-              <img
-                src="../assets/images/logo-icon1.png"
-                width="25%"
-                height="15%"
-                alt="Home"
-              />
-              <br />
-              <img src="../assets/images/logo-text1.png" alt="Home" />
-            </a>
-            <div className="form-group m-t-40">
-              <div className="col-xs-12">
-                <input
-                  className="form-control"
-                  type="text"
-                  required
-                  placeholder="Username"
-                />
-              </div>
+    <div>
+      <section className='showcase'>
+        <div className='video-container' onClick={() => setUSBauth(!USBauth)}>
+          <video src={video} autoPlay muted loop />
+
+          <div className='form-group text-center m-t-20'>
+            <div className='col-xs-6'>
+              <button
+                style={{ zIndex: 3 }}
+                className='btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light'
+                type='submit'
+                hidden={!USBauth}
+              >
+                Hide it (just for test)
+              </button>
             </div>
-            <div className="form-group">
-              <div className="col-xs-12">
-                <input
-                  className="form-control"
-                  type="password"
-                  required
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="d-flex no-block align-items-center">
-                <div className="ml-auto"></div>
-              </div>
-            </div>
-            <div className="form-group text-center m-t-20">
-              <div className="col-xs-12">
-                <button
-                  className="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
-                  type="submit"
-                >
-                  Log In
-                </button>
-              </div>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </section>
+        <div
+          className='containerr animated fadeInDown animatedfadeInDown '
+          hidden={!USBauth}
+        >
+          <div className='login-register'>
+            <div className='login-box card'>
+              <div className='card-body'>
+                <form className='form-horizontal form-material' id='loginform'>
+                  <h3 className='box-title m-b-20'>Sign In</h3>
+                  <div className='form-group '>
+                    <div className='col-xs-12'>
+                      <input
+                        className='form-control'
+                        type='text'
+                        required
+                        placeholder='Username'
+                      />{" "}
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <div className='col-xs-12'>
+                      <input
+                        className='form-control'
+                        type='password'
+                        required
+                        placeholder='Password'
+                      />{" "}
+                    </div>
+                  </div>
+
+                  <div className='form-group text-center m-t-20'>
+                    <div className='col-xs-12'>
+                      <button
+                        className='btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light'
+                        type='submit'
+                      >
+                        Log In
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default LoginPage;
+export default Login;
